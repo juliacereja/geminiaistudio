@@ -7,6 +7,7 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 
 def responder_pergunta():
 
+    st.text_input("Digite sua pergunta:")
     prompt = st.text_input("Digite sua pergunta:")
 
     resposta = model.generate_content(prompt)
