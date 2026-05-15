@@ -14,7 +14,7 @@ def responder_pergunta():
     return resposta.text
 
 st.subheader("Faça uma pergunta a IA")
-if st.text_input("Digite sua pergunta:")
+if st.text_input("Digite sua pergunta:"):
 
     ideia = responder_pergunta()
 
