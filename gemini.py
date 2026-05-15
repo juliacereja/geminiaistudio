@@ -7,15 +7,20 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 
 def responder_pergunta():
 
-    prompt = st.text_input
+    prompt = st.text_input("Digite sua pergunta:")
 
     resposta = model.generate_content(prompt)
 
     return resposta.text
 
 st.subheader("Faça uma pergunta a IA")
-if st.text_input("Digite sua pergunta:"):
+if st.button("Perguntar"):
 
-    ideia = responder_pergunta()
+    if prompt:
 
-    st.success(ideia)
+        resposta = model.generate_content(prompt)
+
+        st.success(resposta.text)
+
+    else:
+        st.warning("Digite uma pergunta.")
