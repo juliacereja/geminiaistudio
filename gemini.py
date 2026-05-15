@@ -3,20 +3,12 @@ import google.generativeai as genai
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
-st.text_input("Digite sua pergunta:")
+st.subheader("Faça uma pergunta à IA")
 
-def responder_pergunta():
+prompt = st.text_input("Digite sua pergunta:")
 
-
-    prompt = st.text_input("Digite sua pergunta:")
-
-    resposta = model.generate_content(prompt)
-
-    return resposta.text
-
-st.subheader("Faça uma pergunta a IA")
 if st.button("Perguntar"):
 
     if prompt:
